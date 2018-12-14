@@ -7,50 +7,38 @@ b. Дан массив чисел. Выведите их на печать, сд
 c. Проверьте, отсортировано ли множество чисел в строке.
  */
 public class Main
-{
-    public static int[] sortmatr(int[] mass,char sortvalue)
-    {
-        int temp;
-        do {
-            System.out.println("Введите значение сортировки 'A' для сортировки по возрастанию и 'D' по убыванию");
+{   public static int[] sortmatr(int[] mass,char sortvalue)
+    {   int temp;
+        do {System.out.println("Введите значение сортировки 'A' для сортировки по возрастанию и 'D' по убыванию");
             System.out.println("Для этой лабораторной значение изначально задано и равно " + sortvalue);
             switch (sortvalue)
             {
                 case 'a' :
-                    {
-                        for (int i =0; i<mass.length;i++)
-                        {
-                            for (int j=0;j<mass.length;j++)
-                            {
-                                if(mass[i]<mass[j])
-                                {
-                                    temp = mass[i];
-                                    mass[i] = mass[j];
-                                    mass[j] = temp;
+                    { for (byte i =0; i<mass.length;i++)
+                        {for (byte j=0;j<mass.length;j++)
+                            {if(mass[i]<mass[j])
+                                {   temp = mass[j];
+                                    mass[j] = mass[i];
+                                    mass[i] = temp;
                                 }
                             }
                         }
                         break;
                     }
                 case 'd' :
-                    {
-                        for (int i =0; i<mass.length-1;i++)
-                        {
-                            for (int j=1;j<mass.length;j++)
-                            {
-                                if(mass[i]>mass[j])
-                                {
-                                    temp = mass[i];
-                                    mass[i] = mass[j];
-                                    mass[j] = temp;
+                    {for (byte i =0; i<mass.length-1;i++)
+                        {for (byte j=0;j<mass.length;j++)
+                            {if(mass[i]>mass[j])
+                                {   temp = mass[j];
+                                    mass[j] = mass[i];
+                                    mass[i] = temp;
                                 }
                             }
                         }
                         break;
                     }
                 default:
-                    {
-                        System.out.println("Ошибка! Введите правильное значение");
+                    {   System.out.println("Ошибка! Введите правильное значение");
                         break;
                     }
             }
@@ -58,12 +46,10 @@ public class Main
         return mass;
     }
     public static void ifmatrsort(int[] matr)
-    {
-        int ascendingcount = 1;
+    {   int ascendingcount = 1;
         int descendingcount =1;
         for (int i =0; i<matr.length-1; i++)
-        {
-            if (matr[i]<matr[i+1]) ascendingcount++;
+        {   if (matr[i]<matr[i+1]) ascendingcount++;
             if (matr[i]>matr[i+1]) descendingcount++;
         }
         if(ascendingcount == matr.length) System.out.println("Массив отсортирован по возрастанию");
@@ -71,53 +57,33 @@ public class Main
         else System.out.println("Массив не отсортирован");
     }
     public static void ifstringmatrsort(String initial)
-    {
-        int[] matr;
-        int numbercount=0;
+    {   int[] matr;
+        byte numbercount=0;
         String[] words;
         words = initial.split(" ");
         for (byte i = 0; i <words.length;i++)
-        {
-            if(tryParseInt(words[i]))
-            {
-                numbercount++;
-            }
-        }
+        {if(tryParseInt(words[i]))  {numbercount++;}  }
         matr = new int[numbercount];
-        int k=0;
+        byte k=0;
         for (byte i=0; i<words.length;i++)
-        {
-            if(tryParseInt(words[i]))
-            {
-                if(k<numbercount)
-                {
-                    matr[k] = Integer.parseInt(words[i]);
-                    k++;
-                }
+        {if(tryParseInt(words[i]))
+            {if(k<numbercount)
+                {matr[k] = Integer.parseInt(words[i]);k++;}
             }
         }
         ifmatrsort(matr);
     }
     public static boolean tryParseInt (String value)
-    {
-        try {
-            Integer.parseInt(value);
-            return true;
-        }
+    {   try {Integer.parseInt(value);
+             return true;}
         catch (NumberFormatException e )
-        {
-            return false;
-        }
+        {return false;}
     }
     public static String matrToString (int[] matr)
-    {
-        String text="";
-        for (int i =0;i<matr.length;i++)
-        {
-            if(matr[i]>0)
-            {
-                text+= "     " +matr[i];
-            }
+    {   String text="";
+        for (byte i =0;i<matr.length;i++)
+        {   if(matr[i]>0)
+            {text+= "     " +matr[i];}
             else text+= " " +matr[i];
         }
         return text;
@@ -131,15 +97,11 @@ public class Main
         int[] secondmatrix;
         System.out.println("Первоначальные значения массива");
         for (int i =0; i<initialmatrix.length;i++)
-        {
-            System.out.print(initialmatrix[i] + " ");
-        }
+        {System.out.print(initialmatrix[i] + " ");}
         secondmatrix = sortmatr(initialmatrix,'a');
         System.out.println("Отсортированные значения массива");
         for (int i =0; i<secondmatrix.length;i++)
-        {
-            System.out.print(secondmatrix[i] + " ");
-        }
+        {System.out.print(secondmatrix[i] + " ");}
         System.out.println("\n====================================\n"+
                 "b. Дан массив чисел. Выведите их на печать, сдвигая положительные значения на 5 пробелов вправо.\n"+
                 "====================================");
