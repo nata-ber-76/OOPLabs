@@ -1,31 +1,46 @@
 package com.company;
 
-public class Matrix {
-    //Переменные класса Matrix
-    private int[] matr;
+public class Vector {
+
+    //Переменные класса Vector
+
+    public int[] matr;
     public final int lenght;
-    //Конструкторы для класса Matrix
+
+    //Конструкторы для класса Vector
+
     //Конструктор в котором не введены значения
-    public Matrix()
+    public Vector()
     {
          lenght = 5;
         matr = new int[] {13,23,-51,16,0};
     }
     //Конструктор с заданным размером
-    public Matrix(int Length)
+    public Vector(int Length)
     {
         lenght=Length;
         matr = new int[lenght];
     }
+    //
+    public Vector(Vector a)
+    {
+        lenght = a.lenght;
+        matr = new int[a.matr.length];
+        for (int i=0; i<matr.length;i++)
+        {
+            matr[i] = a.matr[i];
+        }
+    }
     //Конструктор создающий массив из строки
-    public Matrix(String initial)
-    {   byte numbrcount=0;
+    public Vector(String initial)
+    {
+        byte numbrcount=0;
         String[] words = initial.split(" ");
         for (byte i =0;i<words.length;i++)
             if(tryParseInt(words[i])) numbrcount++;
          lenght=numbrcount;
          matr = new int[lenght];
-         byte k=0;
+         byte   k=0;
         for (byte i =0;i<words.length;i++)
         {
             if(tryParseInt(words[i]))
@@ -36,7 +51,15 @@ public class Matrix {
             }
         }
     }
-    //Методы класса Matrix
+
+    //Методы класса Vector
+
+    public void setEl(byte count,int value )
+    {
+        count--;
+        matr[count] = value;
+    }
+
     public void SortMatr(char sortvalue)//Метод для сортировки массива по ключу
     {   int temp;
         switch (sortvalue)
@@ -76,7 +99,7 @@ public class Matrix {
             }
         }
     }
-    public void GetSort(int[] matr)//Проверяет является ли массив сортированным
+    public void GetSort()//Проверяет является ли массив сортированным
     {   int ascendingcount = 1;
         int descendingcount =1;
         for (int i =0; i<matr.length-1; i++)
@@ -93,7 +116,7 @@ public class Matrix {
     catch (NumberFormatException e )
     {return false;}
     }
-    public String ToString ()//Метод возвращающий класс Matrix строкой вида "положительные числа смещены на 5 пробелов вправо
+    public String toString ()//Метод возвращающий класс Vector строкой вида "положительные числа смещены на 5 пробелов вправо
     {   String text="";
         for (byte i =0;i<matr.length;i++)
         {   if(matr[i]>0)
@@ -104,6 +127,10 @@ public class Matrix {
     }
     public void ToPrint()// Метод печатающий массив
     {
-        System.out.println(toString());
+        for (byte i=0;i<matr.length;i++)
+        {
+            System.out.print(matr[i]+" ");
+        }
+        System.out.println();
     }
 }
