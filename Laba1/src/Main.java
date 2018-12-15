@@ -26,7 +26,7 @@ public class Main
                         break;
                     }
                 case 'd' :
-                    {for (byte i =0; i<mass.length-1;i++)
+                    {for (byte i =0; i<mass.length;i++)
                         {for (byte j=0;j<mass.length;j++)
                             {if(mass[i]>mass[j])
                                 {   temp = mass[j];
@@ -94,7 +94,7 @@ public class Main
                 "a. Отсортируйте значения в массиве.\n"+
                 "====================================");
         int[] initialmatrix = new int[] {20,23,294,-41,643,-123,0,23};
-        int[] secondmatrix;
+        int[] secondmatrix; // ссылочные типы данных
         System.out.println("Первоначальные значения массива");
         for (int i =0; i<initialmatrix.length;i++)
         {System.out.print(initialmatrix[i] + " ");}
