@@ -42,6 +42,9 @@ public class Main {
         System.out.println("Исходный текст \n" + text);
         first = new Vector(text);
         first.GetSort();
+        try {
+            Menu.writeVector(first);
+        } catch (IOException e){}
 
     }
 }
