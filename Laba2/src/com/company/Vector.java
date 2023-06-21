@@ -59,7 +59,7 @@ public class Vector {
         count--;
         matr[count] = value;
     }
-
+//testfunction
     public void SortMatr(char sortvalue)//Метод для сортировки массива по ключу
     {   int temp;
         switch (sortvalue)
