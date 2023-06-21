@@ -45,6 +45,8 @@ public class Main
         } while(sortvalue!='a' && sortvalue!='d');
         return mass;
     }
+    
+    //тестовый текст для изменеинй 
     public static void ifmatrsort(int[] matr)
     {   int ascendingcount = 1;
         int descendingcount =1;
