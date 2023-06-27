@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 
 public class Menu {
-    //Старый способ
+    //Старый способ !!!!
     private static boolean tryParseInt (String value)//Внутренний метод проверяющий можно ли преобразовать строку в элемент массива
     {
         try {
