@@ -1,5 +1,5 @@
 import java.util.Random;
-/* пример*/
+/* пример !!!!!!*/
 import java.io.*;
 
 public class Main {
